@@ -36,12 +36,12 @@ class LinkedList
     @head
   end
 
-  # head node is index = 0
+  # head node is index = 1
   def at(index)
     if index >= size
       return nil
     else
-      i = 0
+      i = 1
       temp_node = @head
       while i != index do
         temp_node = temp_node.get_next_node
@@ -79,7 +79,17 @@ class LinkedList
 
   # returns the index if found, nil if not found
   def find(value)
-
+    i = 1
+    temp_node = @head
+    while temp_node != nil do
+      if temp_node.get_value == value
+        return i
+      else
+        temp_node = temp_node.next_node
+        i += 1
+      end
+    end
+    nil
   end
 
   # prints linked list as string: (Value) -> (value) -> ....
